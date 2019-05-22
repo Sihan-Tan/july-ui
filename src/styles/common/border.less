@@ -7,7 +7,7 @@
     }
   }
   
-  .border-1px(@color: #DDD, @radius: 2PX, @style: solid) {
+  .border-1px(@color: var(var(--bgColor-grey)), @radius: 2PX, @style: solid) {
     &::before {
       content: "";
       pointer-events: none;
@@ -36,7 +36,7 @@
     }
   }
   
-  .border-top-1px(@color: #DDD, @style: solid) {
+  .border-top-1px(@color: var(var(--bgColor-grey)), @style: solid) {
     &::before {
       content: "";
       position: absolute;
@@ -48,7 +48,7 @@
       .min-device-pixel-ratio(scaleY(.5), scaleY(.33));
     }
   }
-  .border-bottom-1px(@color: #DDD, @style: solid) {
+  .border-bottom-1px(@color: var(var(--bgColor-grey)), @style: solid) {
     &::after {
       content: "";
       position: absolute;
@@ -60,7 +60,7 @@
       .min-device-pixel-ratio(scaleY(.5), scaleY(.33));
     }
   }
-  .border-left-1px(@color: #DDD, @style: solid) {
+  .border-left-1px(@color: var(var(--bgColor-grey)), @style: solid) {
     &::before {
       content: "";
       position: absolute;
