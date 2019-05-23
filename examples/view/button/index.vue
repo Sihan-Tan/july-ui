@@ -5,16 +5,17 @@
 
       <july-button type="disabled">Disabled Button</july-button>
 
-      <july-button type="light">Light Button</july-button>
+       <july-button-group>
+        <july-button inline type="primary" size="mini">Primary-inline Button</july-button>
+        <july-button inline type="danger">danger-inline Button</july-button>
+      </july-button-group>
 
-      <july-button :inline="true">Inline Button</july-button>
+      <july-button inline>Inline Button</july-button>
 
-      <july-button :outline="true">Outline Button</july-button>
-
+      <july-button plain>Plain Button</july-button>
+      <july-button size="large">Inline Button</july-button>
       <july-button-group>
-        <july-button type="light"
-                    :outline="true"
-                    :inline="true">Inline Button</july-button>
+        <july-button size="large">Inline Button</july-button>
         <july-button type="light"
                     :inline="true">Light Button</july-button>
       </july-button-group>

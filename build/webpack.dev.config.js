@@ -24,7 +24,7 @@ const configuration = merge(commonConfig, {
     host: config.dev.host,
     port: config.dev.port,
     compress: true,
-    open: true,
+    open: false,
     hot: true,
     clientLogLevel: 'warning',
     overlay: config.dev.errorOverlay ? {

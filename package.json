@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --config ./build/webpack.dev.config.js",
     "log": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0",
-    "lint": "eslint --fix --ext .js,.vue src",
+    "lint": "eslint --fix --ext .js,.vue ./packages && eslint --fix --ext .js,.vue ./src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

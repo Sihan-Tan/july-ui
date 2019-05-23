@@ -1,7 +1,20 @@
 <template>
-  <button :class="['july-button', typeClass]"
-          :style="btnStyle"
-          @click="handleClick">
+  <button
+    class="july-button"
+    :class="[
+      type ? 'july-button--' + type : '',
+      size ? 'july-button--' + size : '',
+      {
+        'is-disabled': disabled,
+        'is-plain': plain,
+        'is-round': round,
+        'is-circle': circle,
+        'is-inline': inline,
+        'is-light': light
+      }
+    ]"
+    :style="btnStyle"
+    @click="handleClick">
     <slot></slot>
   </button>
 </template>
@@ -10,36 +23,29 @@
 export default {
   name: 'JulyButton',
   props: {
-    type: { // default、disabled、light
+    type: {
+      // default, primary, success, warning, danger
       type: String,
       default: 'default'
     },
-    inline: {
-      type: Boolean,
-      default: false
+    size: {
+      // normal, large, small, mini
+      type: String,
+      default: 'normal'
     },
-    outline: {
-      type: Boolean,
-      default: false
-    },
+    disabled: Boolean,
+    plain: Boolean,
+    round: Boolean,
+    circle: Boolean,
+    inline: Boolean,
+    light: Boolean,
     btnStyle: {
       type: Object,
       default: () => {}
     }
   },
-  computed: {
-    typeClass () {
-      return {
-        'july-button-default': this.type === 'default',
-        'july-button-disabled': this.type === 'disabled',
-        'july-button-light': this.type === 'light',
-        'july-button-inline': this.inline,
-        'july-button-outline': this.outline
-      }
-    }
-  },
   methods: {
-    handleClick (event) {
+    handleClick(event) {
       if (this.type === 'disabled') {
         event.preventDefault()
         event.stopPropagation()

@@ -3,15 +3,24 @@
 
 @button-prefix-cls: ~"@{css-prefix}button";
 
+.button-size(@size) {
+  @scopeSize: e('var(--font-size--@{size})');
+  @scopeHeight: e('var(--button-height--@{size})');
+  @scopePadding: e('var(--button-padding--@{size})');
+  font-size: @scopeSize;
+  height: @scopeHeight;
+  padding: 0 @scopePadding;
+  line-height: @scopeHeight;
+}
+.button-bg(@type) {
+  @endType: e('var(--color-@{type})');
+  background-image: linear-gradient(90deg, @endType 0%, @endType 100%);
+}
+
 .@{button-prefix-cls} {
   position: relative;
   user-select: none;
-  outline: none;
-  width: 100%;
-  height: 88px;
-  line-height: 88px;
   font-family: PingFangSC-Regular;
-  font-size: 36px;
   color: var(--color-white);
   text-align: center;
   padding: 0;
@@ -20,26 +29,59 @@
   outline: none;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
-  &-default {
-    background-image: linear-gradient(90deg, var(--color-blue--light) 0%, var(--color-blue) 100%);
+
+  // type
+  &--default {
+    .button-bg('white');
+    color: var(--color-normal);
   }
-  &-disabled {
+  &--primary {
+    .button-bg('primary')
+  }
+  &--success {
+    .button-bg('success')
+  }
+  &--warning {
+    .button-bg('warning')
+  }
+  &--danger {
+    .button-bg('danger')
+  }
+
+  // size
+  &--large {
+    .button-size('large');
+    display: block;
+    width: 100%;
+  }
+  &--normal {
+    .button-size('normal')
+  }
+  &--small {
+    .button-size('small')
+  }
+  &--mini {
+    .button-size('mini')
+  }
+
+  // other feature
+  &.is-disabled {
     background: var(--color-grey);
   }
-  &-light {
-    color: var(--color-blue--light);
+  &.is-light {
+    color: var(--color-primary--light);
     background: var(--color-grey--light);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px var(--color-shadow);
   }
-  &-inline {
+  &.is-inline {
     display: inline-block;
     vertical-align: middle;
     width: auto;
     padding: 0 30px;
   }
-  &-outline {
-    color: var(--color-blue--light);
+  &.is-plain {
+    color: var(--color-primary--light);
     background: transparent;
-    .border-1px(var(--color-blue--light), 8px);
+    .border-1px(var(--color-primary--light), 8px);
   }
 }

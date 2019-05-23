@@ -67,7 +67,7 @@ module.exports = {
             },
             {
                 test: /\.less$/,
-                loaders: ['vue-style-loader', 'postcss-loader', 'less-loader']
+                loaders: ['vue-style-loader', 'css-loader', 'postcss-loader', 'less-loader']
             },
             {
                 test: /\.otf|ttf|woff2?|eot(\?\S*)?$/,
