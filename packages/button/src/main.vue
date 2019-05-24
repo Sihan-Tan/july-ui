@@ -8,8 +8,6 @@
         'is-disabled': disabled,
         'is-plain': plain,
         'is-round': round,
-        'is-circle': circle,
-        'is-inline': inline,
         'is-light': light
       }
     ]"
@@ -36,8 +34,6 @@ export default {
     disabled: Boolean,
     plain: Boolean,
     round: Boolean,
-    circle: Boolean,
-    inline: Boolean,
     light: Boolean,
     btnStyle: {
       type: Object,

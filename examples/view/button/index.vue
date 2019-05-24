@@ -1,24 +1,19 @@
 <template>
   <july-page>
     <div class="button-wrap">
-      <july-button @click="handle">Default Button</july-button>
+      <july-button @click="handleClick">Default </july-button>
+      <july-button type="primary">Primary </july-button>
+      <july-button type="success">Success </july-button>
+      <july-button type="warning">Warning </july-button>
+      <july-button type="danger">Danger </july-button>
 
-      <july-button type="disabled">Disabled Button</july-button>
+      <july-button size="large">large</july-button>
 
-       <july-button-group>
-        <july-button inline type="primary" size="mini">Primary-inline Button</july-button>
-        <july-button inline type="danger">danger-inline Button</july-button>
-      </july-button-group>
-
-      <july-button inline>Inline Button</july-button>
+      <july-button round size="large" plain type="primary">Default round</july-button>
+      <july-button plain type="success">Default round</july-button>
+      <july-button plain type="warning">Default round</july-button>
 
       <july-button plain>Plain Button</july-button>
-      <july-button size="large">Inline Button</july-button>
-      <july-button-group>
-        <july-button size="large">Inline Button</july-button>
-        <july-button type="light"
-                    :inline="true">Light Button</july-button>
-      </july-button-group>
 
       <july-button :btnStyle="btnStyle">Custom Button</july-button>
     </div>
@@ -37,8 +32,8 @@ export default {
     }
   },
   methods: {
-    handle (event) {
-      console.log('event', event)
+    handleClick (...rest) {
+      console.log('event', rest)
     }
   }
 }
