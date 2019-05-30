@@ -1,19 +1,31 @@
 <template>
   <july-page>
     <div class="button-wrap">
-      <july-button @click="handleClick">Default </july-button>
+      <july-button >Default </july-button>
       <july-button type="primary">Primary </july-button>
       <july-button type="success">Success </july-button>
       <july-button type="warning">Warning </july-button>
       <july-button type="danger">Danger </july-button>
+      <july-button type="info">Info </july-button>
 
-      <july-button size="large">large</july-button>
+      <br>
 
-      <july-button round size="large" plain type="primary">Default round</july-button>
-      <july-button plain type="success">Default round</july-button>
-      <july-button plain type="warning">Default round</july-button>
+      <july-button plain >Default </july-button>
+      <july-button plain type="primary">Primary </july-button>
+      <july-button plain type="success">Success </july-button>
+      <july-button plain type="warning">Warning </july-button>
+      <july-button plain type="danger">Danger </july-button>
+      <july-button plain type="info">Info </july-button>
 
-      <july-button plain>Plain Button</july-button>
+      <july-button type="primary" round size="large">large</july-button>
+      <july-button type="primary" >default</july-button>
+      <july-button type="primary" size="small">small</july-button>
+      <july-button type="primary" size="mini">mini</july-button>
+
+      <july-button plain round size="large">Default round</july-button>
+      <july-button type="danger" plain round >Default round</july-button>
+      <july-button type="danger" plain round size="small">Default round</july-button>
+      <july-button type="danger" plain round size="mini">Default round</july-button>
 
       <july-button :btnStyle="btnStyle">Custom Button</july-button>
     </div>

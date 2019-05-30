@@ -5,36 +5,54 @@
 @animation-time: .3s;
 @ease-in-out: ease-in-out;
 
+@primary: #3377ff;
+@success: #39bd65;
+@warning: #ffa033;
+@danger: #f05656;
+@info: #a2a1a1;
+@normal:  #cccccc;
+
+
 // root
 :root {
     // color
-    --color-normal: #606266;
+    --color-font--important: #111;
+    --color-font--title: #333;
+    --color-font--normal: #606266;
+    --color-font--primary: @primary;
+    --color-font--success: @success;
+    --color-font--warning: @warning;
+    --color-font--danger: @danger;
+    --color-font--info: @info;
+    --color-font--tip: #999;
     --color-shadow: rgba(0, 0, 0, 0.1);
+    --color-font--white: #FFF;
+
     --color-white: #FFF;
-    --color-grey: #DDD;
-    --color-grey--light: #FCFCFC;
-    --color-grey--bg: #e5e9ee;
-    --color-grey--bd: #909399;
-    --color-primary: #409eff;
-    --color-primary--light: #4B90FF;
-    --color-primary--bg: #ecf5ff;
-    --color-primary--bd: #b3d8ff;
-    --color-success: #67c23a;
-    --color-success--light: #acee8a;
-    --color-success--bg: #f0f9eb;
-    --color-success--bd: #c2e7b0;
-    --color-info: #909399;
-    --color-info--light: #b1b3b8;
-    --color-info--bg: #f4f4f5;
-    --color-info--bd: #d3d4d6;
-    --color-warning: #e6a23c;
-    --color-warning--light: #f3c57f;
-    --color-warning--bg: #fdf6ec;
-    --color-warning--bd: #f5dab1;
-    --color-danger: #f56c6c;
-    --color-danger--light: #e6a5a5;
-    --color-danger--bg: #fef0f0;
-    --color-danger--bd: #fbc4c4;
+    --color-normal: @normal;
+    --color-normal--active: fadeout(@normal, 20%);
+    --color-normal--plain: fadeout(@normal, 80%);
+    --color-normal--border: fadeout(@normal, 60%);
+    --color-primary: @primary;
+    --color-primary--active: fadeout(@primary, 20%);
+    --color-primary--plain: fadeout(@primary, 80%);
+    --color-primary--border: fadeout(@primary, 60%);
+    --color-success: @success;
+    --color-success--active: fadeout(@success, 20%);
+    --color-success--plain: fadeout(@success, 80%);
+    --color-success--border: fadeout(@success, 60%);
+    --color-info: @info;
+    --color-info--active: fadeout(@info, 20%);
+    --color-info--plain: fadeout(@info, 80%);
+    --color-info--border: fadeout(@info, 60%);
+    --color-warning: @warning;
+    --color-warning--active: fadeout(@warning, 20%);
+    --color-warning--plain: fadeout(@warning, 80%);
+    --color-warning--border: fadeout(@warning, 60%);
+    --color-danger: @danger;
+    --color-danger--active: fadeout(@danger, 20%);
+    --color-danger--plain: fadeout(@danger, 80%);
+    --color-danger--border: fadeout(@danger, 60%);
 
     // font-size
     --font-size--large: 36px;
@@ -53,4 +71,43 @@
     --button-padding--small: 20px;
     --button-padding--mini: 10px;
     
+}
+
+.font-color(@type) {
+    color: e('var(--color-font--@{type})');
+}
+.font-size(@size) {
+    font-size: e('var(--font-size--@{size})');
+}
+.btn-height(@size) {
+    @scope-height: e('var(--button-height--@{size})');
+    height: @scope-height;
+    line-height: @scope-height;
+}
+.btn-padding(@size) {
+    padding: 0 e('var(--button-padding--@{size})');
+}
+.background-color--default(@type) {
+    background-color: e('var(--color-@{type})');
+}
+.background-color--plain(@type) {
+    background-color: e('var(--color-@{type}--plain)');
+}
+.background-color--plain-active(@type) {
+    background-color: e('var(--color-@{type}--border)');
+}
+.background-color--active(@type) {
+    background-color: e('var(--color-@{type}--active)');
+}
+.border(@type: normal, @radius: 4px) {
+    border: 1px solid e('var(--color-@{type}--border)');
+    border-radius: @radius;
+    @media screen and (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2) {
+        border-width: .5px;
+        border-radius: @radius * 2;
+    }
+    @media screen and (min-device-pixel-ratio: 3), (-webkit-min-device-pixel-ratio: 3) {
+        border-width: .34px;
+        border-radius: @radius * 3;
+    }
 }

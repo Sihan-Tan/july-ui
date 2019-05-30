@@ -9,8 +9,7 @@
         'is-plain': plain,
         'is-round': round,
         'is-light': light
-      }
-    ]"
+      }]"
     :style="btnStyle"
     @click="handleClick">
     <slot></slot>

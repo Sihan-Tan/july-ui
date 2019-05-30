@@ -7,16 +7,18 @@
     }
   }
   
-  .border-1px(@color: var(var(--bgColor-grey)), @radius: 2PX, @style: solid) {
+  .border-1px(@type: 'normal', @radius: 2px, @style: solid) {
     &::before {
       content: "";
       pointer-events: none;
       display: block;
       position: absolute;
       left: 0;
+      right: 0;
       top: 0;
+      bottom: 0;
       transform-origin: 0 0;
-      border: 1PX @style @color;
+      border: 1px @style e('var(--color-@{type})');
       border-radius: @radius;
       box-sizing: border-box;
       width: 100%;
@@ -36,38 +38,38 @@
     }
   }
   
-  .border-top-1px(@color: var(var(--bgColor-grey)), @style: solid) {
+  .border-top-1px(@type: 'normal', @style: solid) {
     &::before {
       content: "";
       position: absolute;
       left: 0;
       top: 0;
       width: 100%;
-      border-top: 1Px @style @color;
+      border-top: 1px @style e('var(--color-@{type})');
       transform-origin: 0 0;
       .min-device-pixel-ratio(scaleY(.5), scaleY(.33));
     }
   }
-  .border-bottom-1px(@color: var(var(--bgColor-grey)), @style: solid) {
+  .border-bottom-1px(@type: 'normal', @style: solid) {
     &::after {
       content: "";
       position: absolute;
       left: 0;
       bottom: 0;
       width: 100%;
-      border-bottom: 1Px @style @color;
+      border-bottom: 1px @style e('var(--color-@{type})');
       transform-origin: 0 0;
       .min-device-pixel-ratio(scaleY(.5), scaleY(.33));
     }
   }
-  .border-left-1px(@color: var(var(--bgColor-grey)), @style: solid) {
+  .border-left-1px(@type: 'normal', @style: solid) {
     &::before {
       content: "";
       position: absolute;
       left: 0;
       top: 0;
       height: 100%;
-      border-left: 1Px @style @color;
+      border-left: 1px @style e('var(--color-@{type})');
       transform-origin: 0 0;
       .min-device-pixel-ratio(scaleX(.5), scaleX(.33));
     }
